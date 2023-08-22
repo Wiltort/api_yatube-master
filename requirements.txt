@@ -2,5 +2,7 @@ pytest-django
 requests
 pillow
 sorl-thumbnail
-django
-djangorestframework
+django~=4.2.4
+djangorestframework~=3.14.0
+
+pytest~=7.4.0
