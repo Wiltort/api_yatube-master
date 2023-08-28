@@ -7,8 +7,10 @@ router = DefaultRouter()
 router.register('posts', PostViewSet)
 
 urlpatterns = [
-    path('posts/<int:pk>/comments/', PostViewSet.as_view(actions={'get': 'comments'})),
-    path('posts/<int:pk>/comments/<int:comment_pk>/', PostViewSet.as_view(actions={'delete': 'delete_comment'})),
+    path('posts/<int:pk>/comments/', PostViewSet.as_view(actions={'get': 'comments', 'post': 'create_comment'})),
+    path('posts/<int:pk>/comments/<int:comment_pk>/',
+         PostViewSet.as_view(actions={'delete': 'delete_comment', 'get': 'view_comment',
+                                      'patch': 'update_comment', 'put': 'update_comment'})),
     path('', include(router.urls)),
 
 ]
